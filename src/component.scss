@@ -1,0 +1,137 @@
+body.gumga-avatar{
+
+    div.modal{
+        display: flex !important;
+        align-items: center;
+
+        div.modal-content{
+            border-radius: 3px;
+            border: none;
+            display: flex;
+            flex-direction: column;
+            background: #F2F2F2;
+        }
+
+        div.modal-dialog{
+            width: 800px;
+            height: 500px;
+        }
+
+        div.modal-body{
+            height: 450px;
+            width: 500px;
+            margin: 0 auto;
+            padding: 40px;
+            background: #F2F2F2;
+
+            .croppie-container .cr-slider-wrap{
+                width: 50%;
+                margin-top: 55px;
+            }
+
+        }
+
+        div.modal-heading{
+            border-bottom: 1px solid #e5e5e5;
+            display: flex;
+            align-items: center;
+            background: #F6F7F9;
+
+            label{
+                font-family: Helvetica, Arial, sans-serif;
+                color: #4b4f56;
+                font-weight: bold;
+                font-size: 14px;
+                line-height: 18px;
+                padding: 12px;
+                margin: 0;
+            }
+            
+        }
+
+        div.modal-footer{
+            bottom: -57px;
+            position: absolute;
+            width: 100%;
+            background: #fff;
+            border-top: 1px solid #e5e5e5;
+
+            button{
+                background: #f3f3f3;
+                border: 1px solid #ccc;
+                padding: 3px 15px 3px 15px;
+                border-radius: 3px;
+            }
+
+            button.cancel{
+                background: transparent;
+                border: none;
+            }
+
+            button.cancel:hover{
+                color: #7f7f7f;
+            }
+
+        }
+
+    }
+
+}
+
+gumga-avatar{
+    
+    .photoCircle{
+        border-radius: 50% !important;
+    }
+
+    .photoContainer{
+        box-shadow: 0 2px 4px -1px rgba(0,0,0,.2),0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12);
+        background: #FFF;
+        border-radius: 3px;
+        display: flex;
+        align-items: center;
+        justify-content: center;    
+        position: relative;
+        transition: all 300ms ease;
+        cursor: pointer;
+
+        input[type="file"]{
+            display: none;
+        }
+
+        .photoPicker{
+            cursor: pointer;
+            opacity: 0;
+            transition: all 300ms ease;
+            position: absolute;
+            bottom: 5px;
+            height: 52px;
+            background: rgba(37, 37, 37, 0.69);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FFF;
+
+            i {
+                color: #ccc;
+                margin: 0 5px 0 0px;
+                font-size: 18px;
+            }
+
+        }
+
+    }
+
+    .photoContainer:hover{
+        
+        .photoPicker{
+            opacity: 1;
+        }
+
+        .photoPicker:hover{
+            background: rgba(37, 37, 37, 0.87);
+        }
+
+    }
+
+}

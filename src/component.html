@@ -1,0 +1,21 @@
+<div class="photoContainer"
+     ng-class="{'photoCircle': $ctrl.type == 'circle'}"
+     ng-style="{ width: $ctrl.width + 'px', height: $ctrl.height + 'px' }">
+
+    <img data-action="zoom" 
+         ng-src="{{$ctrl.image}}"
+         ng-class="{'photoCircle': $ctrl.type == 'circle'}"
+         ng-style="{ width: ($ctrl.width - 10) + 'px', height: ($ctrl.height - 10) + 'px' }"/>
+
+    <input type="file" 
+           name="picker" 
+           accept="image/x-png,image/gif,image/jpeg"/>
+
+    <div class="photoPicker" 
+         ng-style="{ width: ($ctrl.width - 10) + 'px' }" 
+         data-ng-click="$ctrl.input.click()">
+        <i class="material-icons">photo_camera</i>
+        {{$ctrl.pickerText ? $ctrl.pickerText : 'Atualizar foto'}}
+    </div>
+
+</div>

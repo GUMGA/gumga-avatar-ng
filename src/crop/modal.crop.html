@@ -1,0 +1,27 @@
+<div class="modal-heading">
+
+    <label>{{$ctrl.cropTitle ? $ctrl.cropTitle : 'Criar novo recorte'}}</label>
+
+</div>
+
+<div class="modal-footer">
+    <div class="row">
+        <div class="col-md-12">
+
+            <button class="cancel" data-ng-click="$ctrl.close()">Cancelar</button>
+            <button class="crop-btn" data-ng-click="$ctrl.save()">Salvar</button>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal-body">
+
+    <div id="cropElem" ng-init="$ctrl.createCrop()"></div>
+
+
+    <div class="footer">
+
+    </div>
+
+</div>
