@@ -99,6 +99,12 @@ gumga-avatar{
             display: none;
         }
 
+        .photoPicker.circle{
+            margin: 0 auto;
+            bottom: inherit;
+            border-radius: 3px;
+        }
+
         .photoPicker{
             cursor: pointer;
             opacity: 0;

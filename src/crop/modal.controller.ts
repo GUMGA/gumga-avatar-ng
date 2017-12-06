@@ -15,7 +15,9 @@ function(image, $uibModalInstance, cropTitle, width, height, type){
     
     ctrl.createCrop = () => {
         ctrl.crop = new Croppie(document.getElementById('cropElem'), {
-            viewport: { width: width, height: height, type: type }
+            viewport: { width: width, height: height, type: type },
+            showZoomer: true,
+            enableOrientation: true
         });
         ctrl.crop.bind({
             url: image

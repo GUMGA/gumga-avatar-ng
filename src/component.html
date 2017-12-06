@@ -12,7 +12,8 @@
            accept="image/x-png,image/gif,image/jpeg"/>
 
     <div class="photoPicker" 
-         ng-style="{ width: ($ctrl.width - 10) + 'px' }" 
+         ng-style="{ width: $ctrl.type == 'circle' ? ($ctrl.width - 30) + 'px' : ($ctrl.width - 10) + 'px' }" 
+         ng-class="{'circle' : $ctrl.type == 'circle'}"
          data-ng-click="$ctrl.input.click()">
         <i class="material-icons">photo_camera</i>
         {{$ctrl.pickerText ? $ctrl.pickerText : 'Atualizar foto'}}
