@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <title>gumga-avatar-ng</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://gumga.github.io/components/style.css">
+    <link rel="stylesheet" href="dist/gumga-avatar.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  </head>
+  <body >
+
+    <nav class="navbar navbar-inverse" ng-controller="VersionController as ctrl">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">gumga-avatar-ng</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#"
+                 class="dropdown-toggle"
+                 data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ctrl.version}} <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li ng-repeat="version in ctrl.versions"><a href="../{{version}}">{{version}}</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container" ng-controller="Ctrl as ctrl">
+      <div class="row">
+        <div class="col-xs-4">
+          <h2>Descrição</h2>
+          <p>O gumga avatar é um componente para manipulação de uma imagem, sua configuração permite cortar imagens quadradas ou redondas, esse componente te permite criar objetos do tipo GumgaImage ou apenas uma URL.</p>
+          
+
+          <h5><b>Requisitos: </b></h5>
+          <ul>
+            <li>
+              <a href="http://fontawesome.io/" target="_blank">Font Awesome</a>
+            </li>
+            <li>
+              <a href="https://angular-ui.github.io/bootstrap/" target="_blank">UI Bootstrap</a>
+            </li>
+          </ul>
+        
+        </div>
+        <div class="col-xs-8">
+          <h3>Instalação</h3>
+          <pre><code class="prettyprint">// npm
+npm i gumga-avatar-ng --save
+
+// bower
+bower install gumga-avatar-ng --save
+
+//Injeção do modulo
+angular.module('yourApp', ['gumga.avatar']);
+
+&lt;script src="node_modules/gumga-avatar-ng/dist/gumga-avatar.min.js"&gt;&lt;/script&gt;
+&lt;script src="bower_components/gumga-avatar-ng/dist/gumga-avatar.min.js"&gt;&lt;/script&gt;</code></pre>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Exemplo com URL.
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-xs-6">
+              <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#html" aria-controls="home" role="tab" data-toggle="tab">HTML</a></li>
+                <li role="presentation" class=""><a href="#js" aria-controls="profile" role="tab" data-toggle="tab">JavaScript</a></li>
+              </ul>
+              <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="html">
+                  <pre><code  class="prettyprint">&lt;gumga-avatar 
+    ng-model="image"&gt;
+&lt;/gumga-avatar&gt;</code></pre>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="js">
+                  <pre><code class="prettyprint">angular.module('app', ['gumga.avatar'])
+.controller('Ctrl', function ($http, $scope) {
+  
+  $scope.image = 'https://goo.gl/7F8hxx';
+
+});</code></pre>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-6">
+
+                <center>
+                    <gumga-avatar ng-model="ctrl.image"></gumga-avatar>
+                </center>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Parâmetros
+        </div>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Parâmetro</th>
+              <th>Descrição</th>
+              <th>Valor Padrão</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>height</strong></td>
+              <td>Define a altura da imagem em pixel.</td>
+              <td>170</td>
+            </tr>
+            <tr>
+              <td><strong>width</strong></td>
+              <td>Define a largura da imagem em pixel.</td>
+              <td>170</td>
+            </tr>
+            <tr>
+              <td><strong>picker-text</strong></td>
+              <td>Define o texto que irá aparecer no botão de alterar foto</td>
+              <td>Atualizar foto</td>
+            </tr>
+            <tr>
+              <td><strong>crop-title</strong></td>
+              <td>Define o texto que irá aparecer no titulo do modal que abre no momento do corte da foto.</td>
+              <td>Criar novo recorte</td>
+            </tr>
+            <tr>
+              <td><strong>type</strong></td>
+              <td>Define o tipo da imagem se é quadrada ou redonda.  square|circle.</td>
+              <td>square</td>
+            </tr>
+            <tr>
+              <td><strong>use-gumga-image</strong></td>
+              <td>Define se vai ser aplicado ao ngModel um objeto do tipo GumgaImage ou uma URL da imagem.  true|false</td>
+              <td>false</td>
+            </tr>
+            <tr>
+              <td><strong>default-avatar</strong></td>
+              <td>Define uma imagem padrão que é exibida quando o ngModel é nulo.</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.13/moment-timezone-with-data.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.6.3/angular-locale_pt-br.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <script src="dist/gumga-avatar.min.js"></script>
+
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="https://gumga.github.io/components/app.js"></script>
+
+  </body>
+</html>

@@ -10,6 +10,7 @@ let Component = {
         ngModel: '=',
         pickerText: '@?',
         cropTitle: '@?',
+        defaultAvatar: '@?',
         type: '@?', // square|circle
         useGumgaImage: '=?'
     },
@@ -18,17 +19,28 @@ let Component = {
         let ctrl = this;
 
         ctrl.$onInit = () => {
-            ctrl.width = ctrl.width || 170;
-            ctrl.height = ctrl.height || 170;
-            ctrl.useGumgaImage = ctrl.useGumgaImage || false;
-            ctrl.type = ctrl.type || 'square';
-            ctrl.input = $element.find('input[type="file"]');
-            ctrl.input.change((evt) => ctrl.changeImage(evt));
-            if(ctrl.ngModel && ctrl.useGumgaImage){
-                ctrl.image = 'data:' + ctrl.ngModel.mimeType + ';base64,' + ctrl.ngModel.bytes;
-            }
-            if(ctrl.ngModel && !ctrl.useGumgaImage){
-                ctrl.image = ctrl.ngModel;
+            $timeout(() => {
+                ctrl.width = ctrl.width || 170;
+                ctrl.height = ctrl.height || 170;
+                ctrl.useGumgaImage = ctrl.useGumgaImage || false;
+                ctrl.type = ctrl.type || 'square';
+                ctrl.input = $element.find('input[type="file"]');
+                ctrl.input.change((evt) => ctrl.changeImage(evt));
+                if(ctrl.ngModel && ctrl.useGumgaImage){
+                    ctrl.image = 'data:' + ctrl.ngModel.mimeType + ';base64,' + ctrl.ngModel.bytes;
+                }
+                if(ctrl.ngModel && !ctrl.useGumgaImage){
+                    ctrl.image = ctrl.ngModel;
+                }
+            });            
+        }
+
+        ctrl.chooseImage = () => {
+            if(ctrl.input && ctrl.input[0]){
+                ctrl.input.click();
+            }else{
+                ctrl.input = $element.find('input[type="file"]');
+                ctrl.input.click();
             }
         }
 

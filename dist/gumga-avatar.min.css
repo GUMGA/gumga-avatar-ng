@@ -64,6 +64,10 @@ gumga-avatar .photoContainer {
   cursor: pointer; }
   gumga-avatar .photoContainer input[type="file"] {
     display: none; }
+  gumga-avatar .photoContainer .photoPicker.circle {
+    margin: 0 auto;
+    bottom: inherit;
+    border-radius: 3px; }
   gumga-avatar .photoContainer .photoPicker {
     cursor: pointer;
     opacity: 0;
@@ -336,3 +340,5 @@ background: #ccc;
 .cr-rotate-r i:before {
 	content: '\21BB';
 }
+
+/*# sourceMappingURL=gumga-avatar.min.css.map*/

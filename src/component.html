@@ -3,7 +3,7 @@
      ng-style="{ width: $ctrl.width + 'px', height: $ctrl.height + 'px' }">
 
     <img data-action="zoom" 
-         ng-src="{{$ctrl.image}}"
+         ng-src="{{$ctrl.image ? $ctrl.image : $ctrl.defaultAvatar}}"
          ng-class="{'photoCircle': $ctrl.type == 'circle'}"
          ng-style="{ width: ($ctrl.width - 10) + 'px', height: ($ctrl.height - 10) + 'px' }"/>
 
@@ -14,8 +14,8 @@
     <div class="photoPicker" 
          ng-style="{ width: $ctrl.type == 'circle' ? ($ctrl.width - 30) + 'px' : ($ctrl.width - 10) + 'px' }" 
          ng-class="{'circle' : $ctrl.type == 'circle'}"
-         data-ng-click="$ctrl.input.click()">
-        <i class="material-icons">photo_camera</i>
+         data-ng-click="$ctrl.chooseImage()">
+         <i class="fa fa-camera" aria-hidden="true"></i>
         {{$ctrl.pickerText ? $ctrl.pickerText : 'Atualizar foto'}}
     </div>
 
