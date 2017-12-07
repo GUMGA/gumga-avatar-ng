@@ -92,11 +92,18 @@ angular.module('yourApp', ['gumga.avatar']);
               </div>
             </div>
             <div class="col-xs-6">
-
-                <center>
-                    <gumga-avatar ng-model="ctrl.image"></gumga-avatar>
-                </center>
-
+                <div class="row">
+                  <div class="col-md-6">
+                      <center>
+                          <gumga-avatar ng-model="ctrl.image"></gumga-avatar>
+                      </center>
+                  </div>
+                  <div class="col-md-6">
+                      <center>
+                          <gumga-avatar ng-model="ctrl.image" type="circle"></gumga-avatar>
+                      </center>
+                  </div>
+                </div>
             </div>
           </div>
         </div>
