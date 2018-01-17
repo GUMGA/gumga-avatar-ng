@@ -15,7 +15,7 @@ let Component = {
         useGumgaImage: '=?'
     },
     template: require('./component.html'),
-    controller: ['$timeout', '$attrs', '$element', '$uibModal', function ($timeout, $attrs, $element, $uibModal) {
+    controller: ['$timeout', '$attrs', '$element', '$uibModal', '$scope', function ($timeout, $attrs, $element, $uibModal, $scope) {
         let ctrl = this;
 
         ctrl.$onInit = () => {
@@ -26,13 +26,27 @@ let Component = {
                 ctrl.type = ctrl.type || 'square';
                 ctrl.input = $element.find('input[type="file"]');
                 ctrl.input.change((evt) => ctrl.changeImage(evt));
-                if(ctrl.ngModel && ctrl.useGumgaImage){
-                    ctrl.image = 'data:' + ctrl.ngModel.mimeType + ';base64,' + ctrl.ngModel.bytes;
-                }
-                if(ctrl.ngModel && !ctrl.useGumgaImage){
-                    ctrl.image = ctrl.ngModel;
-                }
+                ctrl.initImage();
+
+                $scope.$watch('$ctrl.ngModel', () => {
+                    ctrl.initImage();
+                })
+
+                let img = $element.find('img');
+
+                img.bind('error', () => img.css({'display' : 'none'}));
+                img.bind('load',  () => img.css({'display' : 'block'}));
+
             });            
+        }
+
+        ctrl.initImage = () => {
+            if(ctrl.ngModel && ctrl.useGumgaImage){
+                ctrl.image = 'data:' + ctrl.ngModel.mimeType + ';base64,' + ctrl.ngModel.bytes;
+            }
+            if(ctrl.ngModel && !ctrl.useGumgaImage){
+                ctrl.image = ctrl.ngModel;
+            }
         }
 
         ctrl.chooseImage = () => {
