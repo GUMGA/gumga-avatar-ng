@@ -25,7 +25,7 @@
     </style>
 
     
-    <gumga-avatar use-gumga-image="false" type="circle" ng-model="imagem"></gumga-avatar>
+    <gumga-avatar config="config" use-gumga-image="false" type="circle" ng-model="imagem"></gumga-avatar>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -37,6 +37,10 @@
         
         angular.module('app', ['gumga.avatar', 'ui.bootstrap'])
             .controller('ctrl', function($scope){
+
+                $scope.config = {
+                    enableResize: true
+                };
 
                 $scope.imagem = 'http://www.umov.me/wp-content/uploads/2016/06/url_istock_niicozorn_thumb800.jpg';
 

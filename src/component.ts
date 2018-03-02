@@ -5,6 +5,7 @@ import ModalCropController from './crop/modal.controller';
 
 let Component = {
     bindings: {
+        config: '=?',
         height: '@?',
         width: '@?',
         ngModel: '=',
@@ -103,7 +104,8 @@ let Component = {
                     cropTitle: () => ctrl.cropTitle,
                     width: () => ctrl.width,
                     height: () => ctrl.height,
-                    type: () => ctrl.type
+                    type: () => ctrl.type,
+                    opts: () => ctrl.config
                 }
             });
             modalInstance.result.then(function (imageCropped) {
